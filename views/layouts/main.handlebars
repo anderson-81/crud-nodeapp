@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- Assets -->
+      <!-- <script src="/jquery/jquery.slim.min.js"></script> -->
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="/datatables-js/jquery.dataTables.min.js"></script>
+      <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/datatables/css/jquery.dataTables.min.css">
+      <link rel="icon" href="/assets/imgs/favicon.ico" type="image/x-icon" />
+      <!-- Assets -->
+
+      <title>title</title>
+      <!-- VARIABLE -->
+   </head>
+   <body>
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+         <a class="navbar-brand" href="/">NodeApp</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarBox" aria-controls="navbarBox" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarBox">
+            <!-- LEFT -->	
+            <ul class="navbar-nav mr-auto">
+               {{#if logged}}
+                  <li class="nav-item">
+                     <a class="nav-link" href="/people">People</a>
+                  </li>
+               {{/if}}
+            </ul>
+            <!-- LEFT -->	
+            <!-- RIGHT -->	
+            <ul class="navbar-nav ml-auto">
+               {{#if logged}}
+                  <li class="nav-item">
+                     <a href="/logoff" class="nav-link" data-toggle="modal" data-target="#mdlogoff">Logoff</a>
+                  </li>
+               {{else}}
+                  <li class="nav-item">
+                     <a href="/login" class="nav-link">Login</a>
+                  </li>
+               {{/if}}
+               <!-- MODAL --> 
+               <div class="modal fade" id="mdlogoff" tabindex="-1" role="dialog" aria-labelledby="mdlogoff" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                     <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                           <h5 class="modal-title" id="mdlogofflabel">Question</h5>
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                           </button>
+                        </div>
+                        <div class="modal-body">
+                           <p>Do you want logoff?</p>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-secondary col-md-2" data-dismiss="modal">No</button>
+                           <a href="/logoff" class="btn btn-danger col-md-2" id="lnkLogoff">Yes</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- MODAL --> 
+            </ul>
+            <!-- RIGHT -->
+         </div>
+      </nav>
+      <!-- navbar -->
+      
+      <div class="container-fluid">
+
+         {{#if alert}}
+            <div class="row carousel-fade" id="divAlert">
+               <div class="col-md-12 mx-auto d-block margin-top-1">
+                  <div class="{{ alert.style }}" role="alert">
+                     <strong>{{ alert.title }}</strong> {{ alert.message }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         {{/if}}
+
+         <div style="display: none;">{{ delete }}</div>
+
+         {{{body}}}
+
+         <!-- footer -->
+         <footer class="text-center">
+            <div class="col-md-12">
+               <hr>
+               @2019
+            </div>
+         </footer>
+         <!-- footer -->
+      </div>
+
+      <!-- ASSETS -->
+      <script src="/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/jquery-maskmoney/jquery.maskMoney.min.js"></script>
+      <script src="/moment/moment.min.js"></script>
+      <script src="/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+      <link href="/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+      <link href="/assets/css/style.css" rel="stylesheet">
+      <script>
+         $("#divAlert").fadeOut(8000);
+      </script>
+      <script src="/assets/js/popper.min.js"></script>
+   </body>
+</html>

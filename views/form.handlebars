@@ -1,0 +1,115 @@
+<!-- form -->
+<script src="/assets/js/form.js"></script>
+<div class="row">
+   <div class="col-md-8 mx-auto d-block margin-top-3">
+      <form action="{{ action }}" method="POST">
+         <div class="form-group">
+            <h2 class="display-4">{{ title }}</h2>
+            <!-- VARIABLE -->
+         </div>
+         <div class="form-group">
+            <hr>
+         </div>
+         <!-- ERRORS -->
+         {{#if errors}}
+            <div class="form-group" id="divErrors">
+               <div class="alert list-errors alert-dismissible fade show" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                  <p><b>Error</b></p>
+                  <ul>
+                  {{#each errors as |error|}}
+                     <li>{{error}}</li>
+                  {{/each}}
+                  </ul>
+               </div>
+            </div>
+         {{/if}}
+         <!-- ERRORS -->
+         <div class="form-group">
+            <input type="hidden" id="hash" name="hash" value="{{ hash }}">
+            <input type="hidden" id="id" name="id" value="{{ person.id }}">
+         </div>
+         <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ person.name }}">
+         </div>
+         <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" name="email" value="{{ person.email }}">
+         </div>
+         <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="text" class="form-control" id="salary" name="salary" value="{{ person.salary }}">
+         </div>
+         <div class="form-group">
+            <label for="birthday">Birthday</label>
+            <input type="text" class="form-control datetimepicker-input" id="birthday" name="birthday" 
+            data-toggle="datetimepicker" data-target="#birthday" value="{{ formatDate person.birthday }}"/>
+         </div>
+         <div class="form-group">
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" class="form-control">
+               {{#if person.gender}}
+                  {{#compare person.gender "==" 'M'}}
+                     <option value="M" selected>Male</option>
+                     <option value="F">Female</option>
+                  {{/compare}}
+                  {{#compare person.gender "==" 'F'}}
+                     <option value="M">Male</option>
+                     <option value="F" selected>Female</option>
+                  {{/compare}}
+               {{else}}
+                     <option value="M">Male</option>
+                     <option value="F">Female</option>
+               {{/if}}
+            </select>
+         </div>
+         <div class="form-group">
+            <hr>
+         </div>
+         <!-- CREATE -->
+         {{#compare action "==" '/people/save'}}
+            <div class="form-group">
+               <button type="submit" id="btncreate" class="btn btn-success float-right col-md-2">Create</button>
+               <a href="/people" id="lnkcancel" class="btn btn-secondary float-right col-md-2">Cancel</a>
+               <a href="/people/new" id="lnkreset" class="btn btn-primary float-right col-md-2">Reset</a>
+            </div>
+         {{/compare}}
+         <!-- CREATE -->
+         <!-- EDIT -->
+         {{#compare action "==" '/people/update'}}
+            <div class="form-group">
+               <button type="button" id="btnModalEdit" class="btn btn-warning float-right col-md-2">Edit</button>
+               <a href="/people" id="lnkcancel" class="btn btn-secondary float-right col-md-2">Cancel</a>
+               <button type="button" id="btnModalDelete" class="btn btn-danger float-right col-md-2">Delete</button>
+            </div>
+         {{/compare}}
+         <!-- EDIT -->
+         <!-- MODAL --> 
+         <div class="modal fade" id="mdEdit" tabindex="-1" role="dialog" aria-labelledby="mdEdit" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header bg-primary text-white">
+                     <h5 class="modal-title" id="exampleModalLabel">Question</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                     </button>
+                  </div>
+                  <div class="modal-body">
+                     <p id="question"></p>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" id="btnNo" class="btn btn-secondary col-md-2" data-dismiss="modal">No</button>
+                     <button type="submit" id="btnEdit" class="btn btn-warning col-md-2" id="btnmdedit">Yes</button>
+                     <a href="/people/delete/{{ person.id }}" id="btnDelete" class="btn btn-danger col-md-2" id="lnkDelete">Yes</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- MODAL --> 
+      </form>
+   </div>
+</div>
+<!-- form -->	

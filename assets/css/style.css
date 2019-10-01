@@ -1,0 +1,45 @@
+body{
+   background-color: #e9ecef;
+}
+label{
+   font-weight: bold;
+}
+.jumbotron{
+   border:4px solid black;
+   background-color: white;
+}
+.margin-top-3{
+   margin-top:3%;
+}
+.margin-top-5{
+   margin-top:5%;
+}
+.form-control{
+   border:2px solid black;
+}
+.margin-left-10{
+   margin-left:10%;
+}
+.size-picture{
+   width: 350px; 
+   height: 350px;
+}
+.list-errors{
+   border: 3px solid red;
+   background-color: #ffffd2;
+   color:red;
+   border-radius: 5px;
+   padding: 3%;
+}
+.margin-top-1{
+   margin-top: 1%;
+}
+.img-edit{
+   width:30px;
+}
+.num-error{
+   font-size: 200px;
+}
+.description-error{
+   font-size: 20px;
+}

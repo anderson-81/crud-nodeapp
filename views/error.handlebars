@@ -1,0 +1,20 @@
+<!-- errors -->
+<div class="row">
+   <div class="col-md-12 margin-top-1">
+      <div class="form-group">
+         {{#compare error "==" 404}}
+            <img class="mx-auto d-block img-fluid" src="/assets/imgs/404.png" alt="404">
+         {{/compare}}
+         {{#compare error "==" 500}}
+            <img class="mx-auto d-block img-fluid" src="/assets/imgs/500.png" alt="500">
+         {{/compare}}
+      </div>
+       <div class="form-group">
+         <p class="text-center description-error">{{ description }}</p>
+      </div>
+      <div class="form-group">
+         <a href="/" class="btn btn-primary col-md-3 mx-auto d-block margin-top-3">Home</a>
+      </div>
+   </div>
+</div>
+<!-- errors -->

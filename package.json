@@ -1,0 +1,29 @@
+{
+  "name": "crud-nodeapp",
+  "version": "1.0.0",
+  "description": "Node application: 'express-handlebars' (template rendering) and dasd (dasds).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.3.1",
+    "datatables.net": "^1.10.19",
+    "datatables.net-dt": "^1.10.19",
+    "dateformat": "^3.0.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.16.2",
+    "handlebars-helpers": "^0.10.0",
+    "jquery-maskmoney": "^3.0.2",
+    "js-sha512": "^0.8.0",
+    "nodemon": "^1.19.2",
+    "random-number": "0.0.9",
+    "sequelize": "^5.19.0",
+    "sqlite3": "^4.1.0",
+    "tempusdominus-bootstrap-4": "^5.1.2"
+  }
+}
